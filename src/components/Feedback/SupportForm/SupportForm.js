@@ -18,12 +18,16 @@ function SupportForm(){
         })
         history.push('/commentsForm');
     }
+    const handlePrevious = () => {
+        history.push('/understandingForm');
+    }
 
     return (
         <div>
             <p>How well are you being supported?</p>
             <p>{supportRate}</p>
             <input type="range" min="1" max="5" value={supportRate} onChange={event => setSupportRate(event.target.value)}/><br/>
+            <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
         </div>
     )
