@@ -16,11 +16,11 @@ const feedbackReducer = (state = {}, action) => {
         case "CHANGE_FEELING_RATE":
             return {...state,feeling: action.payload};
         case "CHANGE_UNDERSTANDING_RATE":
-            return {...state,feeling: action.payload};
+            return {...state,understanding: action.payload};
         case "CHANGE_SUPPORT_RATE":
-            return {...state,feeling: action.payload};
+            return {...state,support: action.payload};
         case "CHANGE_COMMENTS":
-            return {...state,feeling: action.payload};
+            return {...state,comments: action.payload};
         case "CLEAR_FEEDBACK":
             return action.payload;
         default:
