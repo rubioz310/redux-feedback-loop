@@ -18,11 +18,19 @@ function CommentsForm(){
         })
         history.push('/reviewScreen');
     }
+    const handlePrevious = () => {
+        dispatch({
+            type: 'CHANGE_COMMENTS',
+            payload: comments
+        })
+        history.push('/supportForm');
+    }
 
     return (
         <div>
             <p>Any comments you want to leave?</p>
             <textarea value={comments} onChange={event => setComments(event.target.value)}/><br/>
+            <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
         </div>
     )

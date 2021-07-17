@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 import axios from 'axios';
 
 function ReviewScreen(){
     const history = useHistory();
     const feedback = useSelector(store => store.feedbackReducer);
+    const dispatch = useDispatch();
 
     const handleSubmit = () => {
         uploadFeedback(feedback)
@@ -17,6 +18,13 @@ function ReviewScreen(){
             alert('Error submitting feedback');
         })
       }
+      const handleReset = () => {
+        dispatch({
+            type: 'CLEAR_FEEDBACK',
+            payload: {}
+        })
+        history.push('/feelingForm');
+    }
 
     return (
         <div>
@@ -24,7 +32,7 @@ function ReviewScreen(){
             <p>Understanding: {feedback.understanding}</p>
             <p>Support: {feedback.support}</p>
             <p>Comments: {feedback.comments}</p>
-
+            <button onClick={handleReset}>Reset</button>
             <button onClick={handleSubmit}>Submit Feedback</button>
         </div>
     )
