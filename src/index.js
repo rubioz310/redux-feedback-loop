@@ -4,5 +4,38 @@ import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//Redux stuff
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import logger from 'redux-logger';
+import {Provider} from 'react-redux';
+
+
+//Feedback reducer
+const feedbackReducer = (state = {}, action) => {
+    switch (action){
+        case "CHANGE_FEELING_RATE":
+            return {...state,feeling: action.payload};
+        case "CHANGE_UNDERSTANDING_RATE":
+            return {...state,feeling: action.payload};
+        case "CHANGE_SUPPORT_RATE":
+            return {...state,feeling: action.payload};
+        case "CHANGE_COMMENTS":
+            return {...state,feeling: action.payload};
+        case "CLEAR_FEEDBACK":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+//Store creation
+let storeInstance= createStore(
+    combineReducers({
+        feedbackReducer,
+    }),
+    applyMiddleware(logger)
+)
+
+ReactDOM.render(<Provider store={storeInstance}> <App />  </Provider>, document.getElementById('root'));
 registerServiceWorker();
+
