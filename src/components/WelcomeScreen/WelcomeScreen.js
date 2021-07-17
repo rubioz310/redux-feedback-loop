@@ -9,7 +9,7 @@ function WelcomeScreen () {
     }
     return (
         <div>
-            <p>Pleas leave a feedback</p>
+            <p>Please leave a feedback</p>
             <button onClick={handleStart}>Start</button>
         </div>
     )
