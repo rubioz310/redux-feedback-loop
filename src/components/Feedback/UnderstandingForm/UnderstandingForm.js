@@ -17,7 +17,7 @@ function UnderstandingForm(){
             type: 'CHANGE_UNDERSTANDING_RATE',
             payload: understandingRate
         })
-        history.push('/');
+        history.push('/supportForm');
     }
 
     return (

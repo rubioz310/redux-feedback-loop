@@ -8,6 +8,7 @@ import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
 import Header from '../Header/Header';
 import FeelingForm from '../Feedback/FeelingForm/FeelingForm';
 import UnderstandingForm from '../Feedback/UnderstandingForm/UnderstandingForm';
+import SupportForm from '../Feedback/SupportForm/SupportForm';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route exact path = "/" component={WelcomeScreen} />
         <Route exact path="/feelingForm" component={FeelingForm} />
         <Route exact path="/understandingForm" component={UnderstandingForm} />
+        <Route exact path="/supportForm" component={SupportForm} />
       </Router>
     </div>
   );
