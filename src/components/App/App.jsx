@@ -9,6 +9,7 @@ import Header from '../Header/Header';
 import FeelingForm from '../Feedback/FeelingForm/FeelingForm';
 import UnderstandingForm from '../Feedback/UnderstandingForm/UnderstandingForm';
 import SupportForm from '../Feedback/SupportForm/SupportForm';
+import CommentsForm from '../Feedback/CommentsForm/CommentsForm';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         <Route exact path="/feelingForm" component={FeelingForm} />
         <Route exact path="/understandingForm" component={UnderstandingForm} />
         <Route exact path="/supportForm" component={SupportForm} />
+        <Route exact path="/commentsForm" component={CommentsForm} />
+
       </Router>
     </div>
   );

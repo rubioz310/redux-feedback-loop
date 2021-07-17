@@ -17,12 +17,12 @@ function SupportForm(){
             type: 'CHANGE_SUPPORT_RATE',
             payload: supportRate
         })
-        history.push('/');
+        history.push('/commentsForm');
     }
 
     return (
         <div>
-            <p>How are you support the content?</p>
+            <p>How well are you being supported?</p>
             <p>{supportRate}</p>
             <input type="range" min="1" max="5" value={supportRate} onChange={event => setSupportRate(event.target.value)}/><br/>
             <button onClick={handleNext}>Next</button>

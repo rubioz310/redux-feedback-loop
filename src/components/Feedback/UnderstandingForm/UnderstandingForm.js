@@ -22,7 +22,7 @@ function UnderstandingForm(){
 
     return (
         <div>
-            <p>How are you understanding the content?</p>
+            <p>How well are you understanding the content?</p>
             <p>{understandingRate}</p>
             <input type="range" min="1" max="5" value={understandingRate} onChange={event => setUnderstandingRate(event.target.value)}/><br/>
             <button onClick={handleNext}>Next</button>
