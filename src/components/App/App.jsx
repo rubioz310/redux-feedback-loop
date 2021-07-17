@@ -11,9 +11,23 @@ import UnderstandingForm from '../Feedback/UnderstandingForm/UnderstandingForm';
 import SupportForm from '../Feedback/SupportForm/SupportForm';
 import CommentsForm from '../Feedback/CommentsForm/CommentsForm';
 import ReviewScreen from '../Feedback/ReviewScreen/ReviewScreen';
+import { useDispatch } from 'react-redux';
 
 function App() {
-
+  const dispatch = useDispatch();
+  
+  const uploadFeedback = (feedback) => {
+    axios.post('/feedback/upload', feedback)
+    .then (response => {
+      console.log('Feedback uploaded');
+      dispatch({
+        type: 'CLEAR_FEEDBACK',
+        payload: {}
+      })
+    }) .catch (error =>{
+      console.log('Error submitting feedback', error);
+    })
+  }
   return (
     <div className='App'>
       <Router>
@@ -23,7 +37,9 @@ function App() {
         <Route exact path="/understandingForm" component={UnderstandingForm} />
         <Route exact path="/supportForm" component={SupportForm} />
         <Route exact path="/commentsForm" component={CommentsForm} />
-        <Route exact path="/ReviewScreen" component={ReviewScreen } />
+        <Route exact path="/ReviewScreen">
+          <ReviewScreen uploadFeedback={uploadFeedback} />
+        </Route>
 
       </Router>
     </div>

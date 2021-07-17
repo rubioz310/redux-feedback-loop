@@ -1,18 +1,12 @@
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux"
+import { useHistory } from "react-router-dom"
 
-function ReviewScreen(){
+function ReviewScreen({ uploadFeedback }){
     const history = useHistory();
-    const dispatch = useDispatch();
-    
     const feedback = useSelector(store => store.feedbackReducer);
 
     const handleSubmit = () => {
-        dispatch({
-            type: 'CLEAR_FEEDBACK',
-            payload: {}
-        })
+        uploadFeedback(feedback);
         history.push('/');
     }
 
