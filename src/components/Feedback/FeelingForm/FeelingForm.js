@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux"
 
 function FeelingForm(){
-    const [feelingRate, setFeelingRate] = useState("3");
-
     const history = useHistory();
     const dispatch = useDispatch();
+    
+    const feedback = useSelector(store => store.feedbackReducer);
+    //This will set current value of the rate if it has one otherwise it will default to "3"
+    const [feelingRate, setFeelingRate] = useState(feedback.feeling ? feedback.feeling: "3");
 
     const handleNext = () => {
         console.log(feelingRate);
