@@ -8,16 +8,15 @@ function CommentsForm(){
     const dispatch = useDispatch();
     
     const feedback = useSelector(store => store.feedbackReducer);
-    //This will set current value of the rate if it has one otherwise it will default to ""
+    //This will set current value of the comments if it has one otherwise it will default to ""
     const [comments, setComments] = useState(feedback.comments ? feedback.comments: "");
 
     const handleNext = () => {
-        console.log(comments);
         dispatch({
             type: 'CHANGE_COMMENTS',
             payload: comments
         })
-        history.push('/');
+        history.push('/reviewScreen');
     }
 
     return (

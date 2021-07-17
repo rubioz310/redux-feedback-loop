@@ -12,7 +12,6 @@ function UnderstandingForm(){
     const [understandingRate, setUnderstandingRate] = useState(feedback.understanding ? feedback.understanding: "3");
 
     const handleNext = () => {
-        console.log(understandingRate);
         dispatch({
             type: 'CHANGE_UNDERSTANDING_RATE',
             payload: understandingRate

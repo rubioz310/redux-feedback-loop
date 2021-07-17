@@ -12,7 +12,6 @@ function FeelingForm(){
     const [feelingRate, setFeelingRate] = useState(feedback.feeling ? feedback.feeling: "3");
 
     const handleNext = () => {
-        console.log(feelingRate);
         dispatch({
             type: 'CHANGE_FEELING_RATE',
             payload: feelingRate

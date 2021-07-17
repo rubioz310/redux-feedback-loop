@@ -12,7 +12,6 @@ function SupportForm(){
     const [supportRate, setSupportRate] = useState(feedback.support ? feedback.support: "3");
 
     const handleNext = () => {
-        console.log(supportRate);
         dispatch({
             type: 'CHANGE_SUPPORT_RATE',
             payload: supportRate
