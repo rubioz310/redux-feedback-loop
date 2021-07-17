@@ -1,13 +1,19 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function FeelingForm(){
-    const [feelingRate, setFeelingRate] = useState(3);
+    const [feelingRate, setFeelingRate] = useState("3");
 
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleNext = () => {
         console.log(feelingRate);
+        dispatch({
+            type: 'CHANGE_FEELING_RATE',
+            payload: feelingRate
+        })
         history.push('/');
     }
 

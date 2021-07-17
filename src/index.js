@@ -12,7 +12,7 @@ import {Provider} from 'react-redux';
 
 //Feedback reducer
 const feedbackReducer = (state = {}, action) => {
-    switch (action){
+    switch (action.type){
         case "CHANGE_FEELING_RATE":
             return {...state,feeling: action.payload};
         case "CHANGE_UNDERSTANDING_RATE":
