@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/supportForm/:direction" component={SupportForm} />
         <Route exact path="/commentsForm/:direction" component={CommentsForm} />
         <Route exact path="/reviewScreen/:direction" component={ReviewScreen} />
-        <Route exact path="/thankyouScreen/:direction" component={ThankyouScreen} />
+        <Route exact path="/thankyouScreen/" component={ThankyouScreen} />
 
       </Router>
     </div>

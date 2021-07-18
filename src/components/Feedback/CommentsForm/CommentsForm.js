@@ -5,7 +5,6 @@ import { useSelector } from "react-redux"
 
 //Material-ui imports
 import { Paper, Slide } from '@material-ui/core';
-import { Mood, MoodBad } from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
@@ -13,21 +12,6 @@ function CommentsForm(){
     const history = useHistory();
     const dispatch = useDispatch();
     const {direction} = useParams();
-
-    //This will show the icons at the extremes of the slider as long as marks for each value
-    const marks = [
-        {
-            value: 1,
-            label: <MoodBad />
-        },
-        { value : 2},
-        { value : 3},
-        { value : 4},
-        {
-            value: 5,
-            label: <Mood />
-        }
-    ]
 
     //This will set current value of the rate if it has one otherwise it will default to ""
     const feedback = useSelector(store => store.feedbackReducer);
