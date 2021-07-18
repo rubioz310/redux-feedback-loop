@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from "react-router-dom";
@@ -17,7 +16,7 @@ import AdminSection from '../Feedback/AdminSection/AdminSection';
 
 function App() {
   const dispatch = useDispatch(); 
-
+  
   const getFeedbacks = () => {
     axios.get('/feedback')
     .then(response => {
