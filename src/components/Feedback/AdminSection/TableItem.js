@@ -1,6 +1,9 @@
+//Material-ui imports
+import { DeleteForever,Flag,FlagOutlined } from "@material-ui/icons";
+import { IconButton } from "@material-ui/core";
+
+
 function TableItem({ feedback, deleteFeedback, flagFeedback }) {
-
-
     const handleDelete = () => {
         deleteFeedback(feedback.id)
     }
@@ -13,8 +16,8 @@ function TableItem({ feedback, deleteFeedback, flagFeedback }) {
             <td>{feedback.understanding}</td>
             <td>{feedback.support}</td>
             <td>{feedback.comments}</td>
-            <td><button onClick={handleFlag}>Flag</button></td>
-            <td><button onClick={handleDelete}>Delete</button></td>
+            <td><IconButton onClick={handleFlag} color="primary">{feedback.flagged ? <Flag/>:<FlagOutlined/>}</IconButton></td>
+            <td><IconButton onClick={handleDelete} color="secondary"><DeleteForever/> </IconButton> </td>
         </tr>
         
     )
