@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux"
-import { Fade } from '@material-ui/core';
+import { Fade, Slider } from '@material-ui/core';
 
 function FeelingForm(){
     const history = useHistory();
@@ -10,7 +10,7 @@ function FeelingForm(){
 
     const feedback = useSelector(store => store.feedbackReducer);
     //This will set current value of the rate if it has one otherwise it will default to "3"
-    const [feelingRate, setFeelingRate] = useState(feedback.feeling ? feedback.feeling: "3");
+    const [feelingRate, setFeelingRate] = useState(feedback.feeling ? feedback.feeling: 3);
 
     const handleNext = () => {
         dispatch({
@@ -21,16 +21,20 @@ function FeelingForm(){
     }
 
     return (
-        <div>
-            <Fade in={true}>
-                <div>
-                    <p>How are you feeling today?</p>
-                    <p>{feelingRate}</p>
-                    <input type="range" min="1" max="5" value={feelingRate} onChange={event => setFeelingRate(event.target.value)}/><br/>
-                    <button onClick={handleNext}>Next</button>
-                </div>
-            </Fade>
-        </div>
+        <Fade in={true}>
+            <div className="formContainer">
+                <p>How are you feeling today?</p>
+                <p>{feelingRate}</p>
+                <Slider 
+                    value={feelingRate}
+                    marks
+                    min={1}
+                    max={5}
+                    onChange={(event, value) => setFeelingRate(value)}
+                />
+                <button onClick={handleNext}>Next</button>
+            </div>
+        </Fade>
     )
 }
 

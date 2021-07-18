@@ -21,3 +21,8 @@
 h4 {
   font-style: italic;
 }
+
+.formContainer{
+  width: 400px;
+  margin: auto;
+}
