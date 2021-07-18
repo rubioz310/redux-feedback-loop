@@ -21,3 +21,19 @@
 h4 {
   font-style: italic;
 }
+
+.formContainer{
+  width: 480px;
+  height: 160px;
+  margin: auto;
+  padding: 32px;
+}
+
+.nextBtn{
+  float:right;
+  margin-right: 64px;
+}
+.previousBtn{
+  float:left;
+  margin-left: 64px;
+}

@@ -20,12 +20,12 @@ function App() {
       <Router>
         <Header />
         <Route exact path = "/" component={WelcomeScreen} />
-        <Route exact path="/feelingForm" component={FeelingForm} />
-        <Route exact path="/understandingForm" component={UnderstandingForm} />
-        <Route exact path="/supportForm" component={SupportForm} />
-        <Route exact path="/commentsForm" component={CommentsForm} />
-        <Route exact path="/reviewScreen" component={ReviewScreen} />
-        <Route exact path="/thankyouScreen" component={ThankyouScreen} />
+        <Route exact path="/feelingForm/:direction" component={FeelingForm} />
+        <Route exact path="/understandingForm/:direction" component={UnderstandingForm} />
+        <Route exact path="/supportForm/:direction" component={SupportForm} />
+        <Route exact path="/commentsForm/:direction" component={CommentsForm} />
+        <Route exact path="/reviewScreen/:direction" component={ReviewScreen} />
+        <Route exact path="/thankyouScreen/" component={ThankyouScreen} />
 
       </Router>
     </div>
