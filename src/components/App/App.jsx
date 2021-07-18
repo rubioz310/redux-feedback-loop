@@ -26,6 +26,14 @@ function App() {
           payload: response.data
       })
     })
+  }
+  const deleteFeedback = (id) => {
+    axios.delete(`/feedback/delete/${id}`)
+    .then( response => {
+      getFeedbacks();
+    }).catch(err => {
+      console.log("Error deleting feedback", err);
+    })
   } 
 
   return (
@@ -40,7 +48,10 @@ function App() {
         <Route exact path="/reviewScreen/:direction" component={ReviewScreen} />
         <Route exact path="/thankyouScreen" component={ThankyouScreen} />
         <Route exact path="/admin">
-          <AdminSection getFeedbacks={getFeedbacks}/>
+          <AdminSection 
+            getFeedbacks={getFeedbacks}
+            deleteFeedback={deleteFeedback}
+          />
         </Route>
 
       </Router>

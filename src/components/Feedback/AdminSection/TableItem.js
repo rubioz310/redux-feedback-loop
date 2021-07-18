@@ -1,4 +1,9 @@
-function TableItem({ feedback }) {
+function TableItem({ feedback, deleteFeedback }) {
+
+
+    const handleDelete = () => {
+        deleteFeedback(feedback.id)
+    }
     return (
         <tr>
             <td>{feedback.feeling}</td>
@@ -6,7 +11,7 @@ function TableItem({ feedback }) {
             <td>{feedback.support}</td>
             <td>{feedback.comments}</td>
             <td><button>Flag</button></td>
-            <td><button>Delete</button></td>
+            <td><button onClick={handleDelete}>Delete</button></td>
         </tr>
         
     )

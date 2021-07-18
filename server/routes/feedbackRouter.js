@@ -49,17 +49,17 @@ router.post('/upload', (req, res) => {
 }); //END POST Route
 
 // DELETE Route that deletes feedback
-// router.delete('/delete/:id', (req, res) => {
-//     const galleryId = req.params.id;
-//     let sqlText = `DELETE FROM "feedback" 
-//                 WHERE "id" = $1`;
+router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    let sqlText = `DELETE FROM "feedback" 
+                WHERE "id" = $1`;
     
-//     pool.query(sqlText, [galleryId])
-//     .then(result => {
-//         res.sendStatus(202);
-//     }).catch(error => {
-//         console.log("Error deleting feedback", error);
-//     })
-// }); // END DELETE Route
+    pool.query(sqlText, [id])
+    .then(result => {
+        res.sendStatus(202);
+    }).catch(error => {
+        console.log("Error deleting feedback", error);
+    })
+}); // END DELETE Route
 
 module.exports = router;
