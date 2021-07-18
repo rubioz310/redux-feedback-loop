@@ -2,6 +2,15 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import TableItem from "./TableItem";
 
+//Imports for material-ui table
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
 function AdminSection({ getFeedbacks, deleteFeedback, flagFeedback }) {
     useEffect(()=> {
         getFeedbacks();
@@ -9,19 +18,19 @@ function AdminSection({ getFeedbacks, deleteFeedback, flagFeedback }) {
     
     const feedbacks = useSelector(store => store.feedbackListReducer);
     return (
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feeling</th>
-                        <th>Comprehension</th>
-                        <th>Support</th>
-                        <th>Comments</th>
-                        <th>Flag</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <TableContainer component={Paper}>
+            <Table size="small" >
+                <TableHead>
+                    <TableRow>
+                        <TableCell align="center">Feeling</TableCell>
+                        <TableCell align="center">Comprehension</TableCell>
+                        <TableCell align="center">Support</TableCell>
+                        <TableCell align="center">Comments</TableCell>
+                        <TableCell align="center">Flag</TableCell>
+                        <TableCell align="center">Delete</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
                     {feedbacks.map(feedback => (
                         <TableItem 
                             key={feedback.id}
@@ -30,9 +39,9 @@ function AdminSection({ getFeedbacks, deleteFeedback, flagFeedback }) {
                             flagFeedback={flagFeedback}
                         />
                     ))}
-                </tbody>
-            </table>
-        </div>
+                </TableBody>
+            </Table>
+        </TableContainer>
     )
 }
 
