@@ -18,16 +18,16 @@ const pool = require('../modules/pool.js');
 // }); // END PUT Route
 
 // GET Route that gets all feedback from the gallery
-// router.get('/', (req, res) => {
-//     const sqlText = 'SELECT * FROM "feedback" ORDER BY "id" ASC'
+router.get('/', (req, res) => {
+    const sqlText = 'SELECT * FROM "feedback" ORDER BY "id" DESC'
 
-//     pool.query(sqlText)
-//     .then(result => {
-//         res.send(result.rows);
-//     }).catch(error => {
-//         console.log("Error getting feedback.", error);
-//     })
-// }); // END GET Route
+    pool.query(sqlText)
+    .then(result => {
+        res.send(result.rows);
+    }).catch(error => {
+        console.log("Error getting feedback.", error);
+    })
+}); // END GET Route
 
 
 //POST Route for uploading feedback

@@ -1,12 +1,12 @@
-function TableItem() {
+function TableItem({ feedback }) {
     return (
         <tr>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>Algo importante</td>
-            <td>F</td>
-            <td>D</td>
+            <td>{feedback.feeling}</td>
+            <td>{feedback.understanding}</td>
+            <td>{feedback.support}</td>
+            <td>{feedback.comments}</td>
+            <td><button>Flag</button></td>
+            <td><button>Delete</button></td>
         </tr>
         
     )

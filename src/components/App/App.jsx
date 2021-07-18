@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 //Components imports
 import Header from '../Header/Header';
@@ -15,6 +16,17 @@ import ThankyouScreen from '../ThankyouScreen/ThankyouScreen';
 import AdminSection from '../Feedback/AdminSection/AdminSection';
 
 function App() {
+  const dispatch = useDispatch(); 
+
+  const getFeedbacks = () => {
+    axios.get('/feedback')
+    .then(response => {
+      dispatch({
+          type: "GET_FEEDBACKS",
+          payload: response.data
+      })
+    })
+  } 
 
   return (
     <div className='App'>
@@ -27,7 +39,9 @@ function App() {
         <Route exact path="/commentsForm/:direction" component={CommentsForm} />
         <Route exact path="/reviewScreen/:direction" component={ReviewScreen} />
         <Route exact path="/thankyouScreen" component={ThankyouScreen} />
-        <Route exact path="/admin" component={AdminSection} />
+        <Route exact path="/admin">
+          <AdminSection getFeedbacks={getFeedbacks}/>
+        </Route>
 
       </Router>
     </div>

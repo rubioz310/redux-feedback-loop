@@ -1,6 +1,13 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import TableItem from "./TableItem";
 
-function AdminSection() {
+function AdminSection({ getFeedbacks }) {
+    useEffect(()=> {
+        getFeedbacks();
+      },[]);
+    
+    const feedbacks = useSelector(store => store.feedbackListReducer);
     return (
         <div>
             <table>
@@ -15,7 +22,9 @@ function AdminSection() {
                     </tr>
                 </thead>
                 <tbody>
-                    <TableItem />
+                    {feedbacks.map(feedback => (
+                        <TableItem feedback={feedback} key={feedback.id}/>
+                    ))}
                 </tbody>
             </table>
         </div>
