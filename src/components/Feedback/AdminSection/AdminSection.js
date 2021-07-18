@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import TableItem from "./TableItem";
 
-function AdminSection({ getFeedbacks, deleteFeedback }) {
+function AdminSection({ getFeedbacks, deleteFeedback, flagFeedback }) {
     useEffect(()=> {
         getFeedbacks();
       },[]);
@@ -27,6 +27,7 @@ function AdminSection({ getFeedbacks, deleteFeedback }) {
                             key={feedback.id}
                             feedback={feedback}
                             deleteFeedback={deleteFeedback}
+                            flagFeedback={flagFeedback}
                         />
                     ))}
                 </tbody>

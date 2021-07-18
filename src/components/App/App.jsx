@@ -35,6 +35,14 @@ function App() {
       console.log("Error deleting feedback", err);
     })
   } 
+  const flagFeedback = (id, flagStatus) => {
+    axios.put(`/feedback/flag/${id}`, flagStatus)
+    .then( response => {
+      getFeedbacks();
+    }).catch(err => {
+      console.log("Error deleting feedback", err);
+    })
+  } 
 
   return (
     <div className='App'>
@@ -51,6 +59,7 @@ function App() {
           <AdminSection 
             getFeedbacks={getFeedbacks}
             deleteFeedback={deleteFeedback}
+            flagFeedback={flagFeedback}
           />
         </Route>
 
