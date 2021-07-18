@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux"
+import { Fade } from '@material-ui/core';
 
 function CommentsForm(){
     const history = useHistory();
@@ -28,10 +29,14 @@ function CommentsForm(){
 
     return (
         <div>
+            <Fade in={true}>
+                <div>
             <p>Any comments you want to leave?</p>
             <textarea value={comments} onChange={event => setComments(event.target.value)}/><br/>
             <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
+            </div>
+            </Fade>
         </div>
     )
 }

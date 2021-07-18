@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux"
+import { Fade } from '@material-ui/core';
 
 function SupportForm(){
     const history = useHistory();
@@ -24,11 +25,15 @@ function SupportForm(){
 
     return (
         <div>
+            <Fade in={true}>
+                <div>
             <p>How well are you being supported?</p>
             <p>{supportRate}</p>
             <input type="range" min="1" max="5" value={supportRate} onChange={event => setSupportRate(event.target.value)}/><br/>
             <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
+            </div>
+            </Fade>
         </div>
     )
 }

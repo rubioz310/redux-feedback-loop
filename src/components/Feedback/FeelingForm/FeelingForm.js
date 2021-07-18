@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux"
+import { Fade } from '@material-ui/core';
 
 function FeelingForm(){
     const history = useHistory();
@@ -21,10 +22,14 @@ function FeelingForm(){
 
     return (
         <div>
-            <p>How are you feeling today?</p>
-            <p>{feelingRate}</p>
-            <input type="range" min="1" max="5" value={feelingRate} onChange={event => setFeelingRate(event.target.value)}/><br/>
-            <button onClick={handleNext}>Next</button>
+            <Fade in={true}>
+                <div>
+                    <p>How are you feeling today?</p>
+                    <p>{feelingRate}</p>
+                    <input type="range" min="1" max="5" value={feelingRate} onChange={event => setFeelingRate(event.target.value)}/><br/>
+                    <button onClick={handleNext}>Next</button>
+                </div>
+            </Fade>
         </div>
     )
 }

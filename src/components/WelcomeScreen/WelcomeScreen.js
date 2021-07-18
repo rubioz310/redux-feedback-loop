@@ -1,5 +1,5 @@
 import {useHistory} from 'react-router-dom';
-
+import { Fade } from '@material-ui/core';
 
 function WelcomeScreen () {
     const history = useHistory();
@@ -8,10 +8,12 @@ function WelcomeScreen () {
         history.push("/feelingForm");
     }
     return (
-        <div>
-            <p>Please leave a feedback</p>
-            <button onClick={handleStart}>Start</button>
-        </div>
+        <Fade in={true}>
+            <div>
+                <p>Please leave a feedback</p>
+                <button onClick={handleStart}>Start</button>
+            </div>
+        </Fade>
     )
 }
 
