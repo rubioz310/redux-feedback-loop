@@ -20,7 +20,7 @@ function UnderstandingForm(){
         history.push('/supportForm');
     }
     const handlePrevious = () => {
-        history.push('/feelingForm');
+        history.push('/feelingForm/right');
     }
 
     return (

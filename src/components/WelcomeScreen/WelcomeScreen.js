@@ -5,7 +5,7 @@ function WelcomeScreen () {
     const history = useHistory();
     
     const handleStart = () =>{
-        history.push("/feelingForm");
+        history.push("/feelingForm/left");
     }
     return (
         <Fade in={true}>

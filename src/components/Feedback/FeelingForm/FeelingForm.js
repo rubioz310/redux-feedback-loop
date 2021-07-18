@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useSelector } from "react-redux"
-import { Fade, Slider } from '@material-ui/core';
+import { Slider, Paper, Slide } from '@material-ui/core';
 
 function FeelingForm(){
     const history = useHistory();
     const dispatch = useDispatch();
+    const {direction} = useParams();
 
     const feedback = useSelector(store => store.feedbackReducer);
     //This will set current value of the rate if it has one otherwise it will default to "3"
@@ -21,8 +22,8 @@ function FeelingForm(){
     }
 
     return (
-        <Fade in={true}>
-            <div className="formContainer">
+        <Slide in={true} direction={direction}>
+            <Paper className="formContainer" elevation={6}>
                 <p>How are you feeling today?</p>
                 <p>{feelingRate}</p>
                 <Slider 
@@ -30,11 +31,12 @@ function FeelingForm(){
                     marks
                     min={1}
                     max={5}
+                    track={false}
                     onChange={(event, value) => setFeelingRate(value)}
                 />
                 <button onClick={handleNext}>Next</button>
-            </div>
-        </Fade>
+            </Paper>
+        </Slide>
     )
 }
 

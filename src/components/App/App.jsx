@@ -20,7 +20,7 @@ function App() {
       <Router>
         <Header />
         <Route exact path = "/" component={WelcomeScreen} />
-        <Route exact path="/feelingForm" component={FeelingForm} />
+        <Route exact path="/feelingForm/:direction" component={FeelingForm} />
         <Route exact path="/understandingForm" component={UnderstandingForm} />
         <Route exact path="/supportForm" component={SupportForm} />
         <Route exact path="/commentsForm" component={CommentsForm} />
