@@ -37,7 +37,7 @@ function FeelingForm(){
             type: 'CHANGE_FEELING_RATE',
             payload: feelingRate
         })
-        history.push('/understandingForm');
+        history.push('/understandingForm/left');
     }
 
     return (
@@ -53,7 +53,8 @@ function FeelingForm(){
                     track={false}
                     onChange={(event, value) => setFeelingRate(value)}
                 />
-                <Button variant="contained" color="primary" size="small" onClick={handleNext}>Next</Button>
+                <div className="previousBtn"><Button variant="contained" color="primary" size="small" disabled="true">Back</Button></div>
+                <div className="nextBtn"><Button variant="contained" color="primary" size="small" onClick={handleNext}>Next</Button></div>
             </Paper>
         </Slide>
     )

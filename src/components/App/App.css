@@ -23,7 +23,16 @@ h4 {
 }
 
 .formContainer{
-  width: 400px;
+  width: 480px;
   margin: auto;
   padding: 32px;
+}
+
+.nextBtn{
+  float:right;
+  margin-right: 64px;
+}
+.previousBtn{
+  float:left;
+  margin-left: 64px;
 }
