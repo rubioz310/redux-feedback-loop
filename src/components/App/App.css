@@ -24,6 +24,7 @@ h4 {
 
 .formContainer{
   width: 480px;
+  height: 160px;
   margin: auto;
   padding: 32px;
 }
