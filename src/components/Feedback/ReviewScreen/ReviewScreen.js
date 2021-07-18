@@ -16,6 +16,9 @@ function ReviewScreen(){
     const handleSubmit = () => {
         uploadFeedback(feedback)
     }
+
+    //The axios call is here because is was not letting me change history 
+    //if I put it on app.js
     const uploadFeedback = (feedback) => {
         axios.post('/feedback/upload', feedback)
         .then (response => {

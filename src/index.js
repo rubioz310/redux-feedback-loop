@@ -28,10 +28,20 @@ const feedbackReducer = (state = {}, action) => {
     }
 }
 
+const feedbackListReducer = (state = [], action) => {
+    switch (action.type){
+        case "GET_FEEDBACKS":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 //Store creation
 let storeInstance= createStore(
     combineReducers({
         feedbackReducer,
+        feedbackListReducer
     }),
     applyMiddleware(logger)
 )
