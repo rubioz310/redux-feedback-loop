@@ -12,6 +12,8 @@ function FeelingForm(){
     const history = useHistory();
     const dispatch = useDispatch();
     const {direction} = useParams();
+
+    //This will show the icons at the extremes of the slider as long as marks for each value
     const marks = [
         {
             value: 1,
@@ -23,12 +25,11 @@ function FeelingForm(){
         {
             value: 5,
             label: <Mood />
-        },
-
+        }
     ]
 
+    //This will set current value of the rate if it has one otherwise it will default to 3
     const feedback = useSelector(store => store.feedbackReducer);
-    //This will set current value of the rate if it has one otherwise it will default to "3"
     const [feelingRate, setFeelingRate] = useState(feedback.feeling ? feedback.feeling: 3);
 
     const handleNext = () => {
@@ -52,7 +53,7 @@ function FeelingForm(){
                     track={false}
                     onChange={(event, value) => setFeelingRate(value)}
                 />
-                <Button variant="contained" color="primary"onClick={handleNext}>Next</Button>
+                <Button variant="contained" color="primary" size="small" onClick={handleNext}>Next</Button>
             </Paper>
         </Slide>
     )
